@@ -39,10 +39,13 @@ extension Document {
             // Call wkhtmltopdf and retrieve the result data
             let wk = Process()
             let stdout = Pipe()
+            
             wk.launchPath = self.launchPath
             wk.arguments = wkArgs
             wk.arguments?.append("-") // output to stdout
+            
             wk.standardOutput = stdout
+//            wk.standardError = nil
             wk.launch()
             
             let pdf = stdout.fileHandleForReading.readDataToEndOfFile()

@@ -2,7 +2,7 @@ import Foundation
 import NIO
 
 public struct Page {
-    let content: Data
+    public let content: Data
 
     public init(_ content: Data) {
         self.content = content
